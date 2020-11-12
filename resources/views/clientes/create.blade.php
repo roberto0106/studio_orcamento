@@ -70,6 +70,7 @@
     $(document).ready(function() {
         M.updateTextFields();
         $('select').formSelect();
+        getCursos();
     });
     
     $(document).on('change','#instituicao', function(){
