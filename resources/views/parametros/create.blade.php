@@ -17,7 +17,7 @@
             
             <div class= "col s12">
             {!! Form::label('produto_id', 'Produto') !!}
-            {!! Form::select('produto_id', ['0'=>'Selecione o Produtos'], ['0'=>'Selecione o Produtos'], ['id'=>'produto_id']) !!}
+            {!! Form::select('produto_id',['0'=>'Selecione o Produtos'], ['0'=>'Selecione o Produtos'], ['id'=>'produto_id']) !!}
         </div>
 
             <div class= "col s12">
@@ -64,12 +64,15 @@
 
         $.get(url, {'cobertura':cobertura},function (data) { 
             $.each(data, function (indexInArray, valueOfElement) { 
+         
                 $('#produto_id').append("<option value='"+indexInArray+"'>"+valueOfElement+"</option>");
                 $('select').formSelect();
             });              
         });
         
     }
+
+    
     
 </script>
 @endsection
