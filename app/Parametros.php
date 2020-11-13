@@ -14,5 +14,13 @@ class Parametros extends Model
         'qtd_produtos'
     ];
 
-   
+    public function cobertura()
+    {
+        return $this->hasOne(Cobertura::class, 'id','cobertura_id');
+    }
+  
+    public function produto()
+    {
+        return $this->hasOne(Produtos::class, 'id','produto_id');
+    }
 }
