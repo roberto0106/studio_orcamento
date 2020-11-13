@@ -45,8 +45,8 @@
         @if ($parametros)
         @foreach ($parametros as $item)
         <tr>
-            <td>{{$item->produto->nome}}</td>
-            <td>{{$item->cobertura->nome}}</td>
+            <td>{{$item->produto}}</td>
+            <td>{{$item->cobertura}}</td>
             <td>{{$item->qtd_formandos_minima}}</td>
             <td>{{$item->qtd_formandos_maxima}}</td>
             <td>{{$item->qtd_produtos}}</td>
