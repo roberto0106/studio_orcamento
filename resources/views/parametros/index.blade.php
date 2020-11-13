@@ -51,6 +51,7 @@
             <td>{{$item->qtd_formandos_maxima}}</td>
             <td>{{$item->qtd_produtos}}</td>
         </tr>
+        @endforeach
         @endif
        
     </tbody>
