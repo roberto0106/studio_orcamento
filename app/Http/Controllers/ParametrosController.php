@@ -16,7 +16,15 @@ class ParametrosController extends Controller
     public function index()
     {
         $parametros = Parametros::all();
-        return view('parametros.index', compact('parametros'));
+       
+        if($parametros->count()>0){
+            return view('parametros.index', compact('parametros'));
+        }else{
+            $parametros = [];
+            return view('parametros.index', compact('parametros'));
+        }
+
+       
     }
 
     /**
