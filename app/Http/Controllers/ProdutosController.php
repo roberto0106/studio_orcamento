@@ -101,8 +101,6 @@ class ProdutosController extends Controller
         $p = Produtos::select('id','nome')->where('cobertura_id',$cobertura)->get(); 
         $produtos=[];
 
-        dd($produtos);
-
         foreach ($p as $key => $value) {
             $produtos[$value->id]=$value->nome;
         }
