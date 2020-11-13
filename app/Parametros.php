@@ -18,7 +18,7 @@ class Parametros extends Model
     {
         return $this->belongsTo(Cobertura::class, 'id');
     }
-
+  
     public function produto()
     {
         return $this->belongsTo(Produtos::class, 'id');
