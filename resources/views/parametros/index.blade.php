@@ -42,6 +42,7 @@
         </tr>
     </thead>
     <tbody>
+        @if ($parametros)
         @foreach ($parametros as $item)
         <tr>
             <td>{{$item->produto->nome}}</td>
@@ -50,7 +51,8 @@
             <td>{{$item->qtd_formandos_maxima}}</td>
             <td>{{$item->qtd_produtos}}</td>
         </tr>
-        @endforeach
+        @endif
+       
     </tbody>
 </table>
 
