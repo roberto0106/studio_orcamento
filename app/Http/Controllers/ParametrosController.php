@@ -29,7 +29,7 @@ class ParametrosController extends Controller
         $c = Cobertura::all();
         $coberturas = [];
         foreach ($c as $key => $value) {
-            $coberturas[$key]=$value->nome;
+            $coberturas[$value->id]=$value->nome;
         }
 
         return view('parametros.create',compact('coberturas'));
