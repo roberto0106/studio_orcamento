@@ -14,13 +14,5 @@ class Parametros extends Model
         'qtd_produtos'
     ];
 
-    public function cobertura()
-    {
-        return $this->belongsTo(Cobertura::class, 'id');
-    }
-  
-    public function produto()
-    {
-        return $this->belongsTo(Produtos::class, 'id');
-    }
+   
 }
