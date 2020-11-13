@@ -25,7 +25,7 @@
       <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
       <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
       <li><a class="btn-floating green"><i class="material-icons">table_chart</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">add_circle_outline</i></a></li>
+      <li><a class="btn-floating blue" href="{{ route('coberturas.create') }}"><i class="material-icons">add_circle_outline</i></a></li>
     </ul>
   </div>
 

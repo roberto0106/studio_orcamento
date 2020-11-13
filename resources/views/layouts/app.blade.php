@@ -23,62 +23,106 @@
 </head>
 <body>
     <div id="app">
-                       
-        <div class="col">
-        <!-- Dropdown Structure -->
-        <ul id="clientes" class="dropdown-content">
-            <li><a href="{{route('coberturas.index')}}">Coberturas</a></li>
-            <li><a href="{{route('produtos.index')}}">Produtos</a></li>
-            <li><a href="{{route('parametros.index')}}">Parametros</a></li>
-            <li class="divider"></li>
-            <li><a href="{{route('clientes.index')}}">Clientes</a></li>
-            <li><a href="{{route('instituicoes.index')}}">Instituicões</a></li>
-            <li><a href="{{route('cursos.index')}}">Cursos</a></li>
-        </ul>
-        <ul id="orcamentos" class="dropdown-content">
-            <li><a href="{{route('orcamentos.create')}}">Criar</a></li>
-            <li><a href="{{route('orcamentos.index')}}">Consultar</a></li>
-            <li class="divider"></li>
-            <li><a href="#">three</a></li>
-        </ul>
-       
-        <nav>
-            <div class="nav-wrapper white">
-                <a href="#!" class="brand-logo center black-text">
-                    Studio Orçamento
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger black-text" href="#!" data-target="clientes">Configurações<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger black-text" href="#!" data-target="orcamentos">Orçamentos<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger black-text" href="#!" data-target="coberturas">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-                </ul>
-            </div>
-        </nav>
-        </div>
-
-        <div class="container">
-            @yield('content')
-        </div>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    
-    
-    
-    @yield('scripts')
-    
-    <script>
         
-        $(document).ready(function(){
-            $(".dropdown-trigger").dropdown();
+        <div class="col">  
+                        
+                <nav>
+                    <div class="nav-wrapper blue">
+                        <a href="#!" class="brand-logo">Studio Orçamento</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                            @endif
+                            @else
 
-        });
-    </script>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span></a>
+                                    
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}</a>
+                                        
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                                @endguest
+                        </ul>
+                    </div>
+                </nav>
+                
+                
+            </div>
+
+            <div class="row">
+            <div class="col s3">
+                <!-- Grey navigation panel -->
+                <ul class="collapsible">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Configurações</div>
+                      <div class="collapsible-body">
+                          <a href="{{route('coberturas.index')}}">Coberturas</a><br>
+                          <a href="{{route('produtos.index')}}">Produtos</a><br>
+                          <a href="{{route('parametros.index')}}">Parametros</a><br>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">place</i>Orçamentos</div>
+                      <div class="collapsible-body">
+                          
+                      </div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Relatórios</div>
+                      <div class="collapsible-body">
+                          
+                      </div>
+                    </li>
+                  </ul>
+            </div>
+        
+            <div class="col s9">
+            <!-- Teal page content  -->
+            
+                    @yield('content')
+   
+            </div>
+            </div>
+
+
+            
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        
+        
+        
+        @yield('scripts')
+        
+        <script>
+            
+            $(document).ready(function(){
+                $(".dropdown-trigger").dropdown();
+                $('.collapsible').collapsible();
+                
+            });
+        </script>
+        
+        
+    </body>
+    </html>
     
-    
-</body>
-</html>
