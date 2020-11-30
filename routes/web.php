@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     //api
     Route::get('getcurso/{inst}','CursoController@getCurso');
     Route::get('getproduto/{cobertura}','ProdutosController@getProdutos');
-    Route::get('refresh_produtos/{coberturas_array}','OrcamentoProdutosController@refresh_produtos');
+    Route::get('inserir_cobertura/{id}/{formandos}','OrcamentoProdutosController@inserir_cobertura');
+
     
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ParametroService;
 use App\OrcamentoProdutos;
 use App\Orcamento;
 use App\Cobertura;
@@ -29,13 +30,8 @@ class OrcamentoProdutosController extends Controller
     {
         $orcamento_id = $request->session()->get('orcamento');
         $dados_orcamento = Orcamento::where('id',$orcamento_id)->get();
-
-        $c=Cobertura::all();
-        $coberturas =[];
-        foreach ($c as $key => $value) {
-            $coberturas[$value->id]=$value->nome;
-        }
-
+        $coberturas=Cobertura::all();
+       
         return view('orcamento_produto.create',compact('dados_orcamento','coberturas'));     
     }
 
@@ -47,7 +43,7 @@ class OrcamentoProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        
     }
 
     /**
@@ -96,10 +92,24 @@ class OrcamentoProdutosController extends Controller
     }
 
 
-    public function refresh_produtos($coberturas){
-        dd($coberturas);
-        $p = Produtos::whereIn('cobertura_id',$coberturas)->get();
-        dd($p);
+    public function inserir_cobertura($cobertura,$formandos){
+        
+        $produtos = Produtos::where('cobertura_id',$cobertura)->get();
+
+        $p = new ParametroService;
+
+
+       $parametro = $p->mostrar($formandos,$cobertura);
+        
+        // dd($parametros);
+
+        // foreach ($produtos as $keyProduto => $valueProduto) {
+        //  foreach ($parametros as $keyParametro => $valueParametro) {
+             
+        //  }   
+        // }
+
+        return $parametro;
 
     }
 }
