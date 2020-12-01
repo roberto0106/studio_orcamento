@@ -128,7 +128,7 @@
                     $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
-                            valueOfElement.cobertura.nome+
+                            valueOfElement.cobertura+
                         '</div>'+
                         '<div class="collapsible-body">'+
                             '<table class="produtos">'+
@@ -144,9 +144,9 @@
                            ' </thead>'+
                             '<tbody>'+
                                 ' <tr>'+
-                                   ' <td>'+valueOfElement.cobertura.nome+'</td>'+
+                                   ' <td>'+valueOfElement.cobertura+'</td>'+
                                     '<td>'+valueOfElement.nome+'</td>'+
-                                    '<td>'+valueOfElement+'</td>'+
+                                    '<td>'+valueOfElement.quantidade+'</td>'+
                                     '<td>'+valueOfElement.preco_venda+'</td>'+
                                     '<td>'+valueOfElement+'</td>'+
                                     '<td><a class="btn-floating btn-large waves-effect waves-light red" id=""><i class="material-icons">delete</i></a></td>'+

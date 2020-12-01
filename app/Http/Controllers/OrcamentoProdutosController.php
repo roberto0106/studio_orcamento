@@ -95,21 +95,10 @@ class OrcamentoProdutosController extends Controller
     public function inserir_cobertura($cobertura,$formandos){
         
         $produtos = Produtos::where('cobertura_id',$cobertura)->get();
-
         $p = new ParametroService;
-
-
-       $parametro = $p->mostrar($formandos,$cobertura);
-        
-        // dd($parametros);
-
-        // foreach ($produtos as $keyProduto => $valueProduto) {
-        //  foreach ($parametros as $keyParametro => $valueParametro) {
-             
-        //  }   
-        // }
-
-        return $parametro;
+        $parametros = $p->mostrar($formandos,$cobertura);
+     
+        return $parametros;
 
     }
 }
