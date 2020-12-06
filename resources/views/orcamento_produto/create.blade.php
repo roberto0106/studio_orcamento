@@ -66,14 +66,9 @@
     <h5>Coberturas Inseridas</h5>
 </blockquote>
 
+<div id="produtos_inseridos">
 
-<ul class="collapsible popout" id="produtos_inseridos">
-
-</ul>
-
-
-
-
+</div>
 
 
 @endsection
@@ -120,6 +115,7 @@
             console.log(data);
 
                 $('#produtos_inseridos').append(
+                    '<ul class="collapsible popout">'+
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
                             data.cobertura+
@@ -157,7 +153,8 @@
                     '</tbody>'+
                         '</table>'+     
                         '</div>'+
-                        '</li>'
+                        '</li>'+
+                    '</ul>'
                 );
              
         });
