@@ -68,13 +68,8 @@
 
 
 <ul class="collapsible popout" id="produtos_inseridos">
-    {{-- <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body">
-        
-      </div>
-    </li> --}}
-  </ul>
+
+</ul>
 
 
 
@@ -122,13 +117,12 @@
             'cobertura':id,
             'formandos':qtd_formandos
         },function (data) {
-                console.log(data);
-                $.each(data, function (indexInArray, valueOfElement) { 
+            console.log(data);
 
-                    $('#produtos_inseridos').append(
+                $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
-                            valueOfElement.cobertura+
+                            data.cobertura+
                         '</div>'+
                         '<div class="collapsible-body">'+
                             '<table class="produtos">'+
@@ -142,23 +136,29 @@
                                     '<th>Ações</th>'+
                                 '</tr>'+
                            ' </thead>'+
-                            '<tbody>'+
-                                ' <tr>'+
-                                   ' <td>'+valueOfElement.cobertura+'</td>'+
-                                    '<td>'+valueOfElement.nome+'</td>'+
-                                    '<td>'+valueOfElement.quantidade+'</td>'+
-                                    '<td>'+valueOfElement.preco_venda+'</td>'+
-                                    '<td>'+valueOfElement+'</td>'+
-                                    '<td><a class="btn-floating btn-large waves-effect waves-light red" id=""><i class="material-icons">delete</i></a></td>'+
-                                '</tr>'+
-                        
-                            '</tbody>'+
-                        '</table>'+
-                            
-                        '</div>'+
-                        '</li>'
+                        '<tbody id="corpo_tabela">');
+
+
+                $.each(data.produtos, function (indexInArray, valueOfElement) { 
+
+                    $('#corpo_tabela').append(
+                        ' <tr>'+
+                            ' <td>'+valueOfElement.cobertura+'</td>'+
+                            '<td>'+valueOfElement.nome+'</td>'+
+                            '<td>'+valueOfElement.quantidade+'</td>'+
+                            '<td>'+valueOfElement.preco_venda+'</td>'+
+                            '<td>'+valueOfElement.valor_total+'</td>'+
+                            '<td><a class="btn-floating btn-large waves-effect waves-light red" id=""><i class="material-icons">delete</i></a></td>'+
+                        '</tr>'
                     );  
                 }); 
+
+                $('#produtos_inseridos').append(
+                    '</tbody>'+
+                        '</table>'+     
+                        '</div>'+
+                        '</li>'
+                );
              
         });
 

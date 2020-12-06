@@ -23,7 +23,9 @@ class ParametroService{
                 if ($valueParametro->produto_id == $valueProduto->id) {
                     $return[$valueProduto->id]['nome']=$valueProduto->nome; 
                     $return[$valueProduto->id]['cobertura']=$valueProduto->cobertura->nome;
-                    $return[$valueProduto->id]['quantidade']=$valueParametro->qtd_produtos; 
+                    $return[$valueProduto->id]['quantidade']=$valueParametro->qtd_produtos;
+                    $return[$valueProduto->id]['preco_venda']=$valueProduto->preco_venda; 
+                    $return[$valueProduto->id]['valor_total']=$valueProduto->preco_venda * $valueParametro->qtd_produtos;
                 }
             }
             

@@ -96,7 +96,8 @@ class OrcamentoProdutosController extends Controller
         
         $produtos = Produtos::where('cobertura_id',$cobertura)->get();
         $p = new ParametroService;
-        $parametros = $p->mostrar($formandos,$cobertura);
+        $parametros['produtos'] = $p->mostrar($formandos,$cobertura);
+        $parametros['cobertura'] = Cobertura::find($cobertura)->nome;
      
         return $parametros;
 
