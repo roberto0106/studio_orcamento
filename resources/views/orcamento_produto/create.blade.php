@@ -66,14 +66,13 @@
     <h5>Coberturas Inseridas</h5>
 </blockquote>
 
-<div id="produtos_inseridos">
-    
-</div>
-
 
 <ul class="collapsible popout" id="produtos_inseridos">
 
 </ul>
+
+
+
 
 
 
