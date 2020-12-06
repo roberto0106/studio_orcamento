@@ -71,11 +71,6 @@
 
 </ul>
 
-
-
-
-
-
 @endsection
 
 @section('scripts')
@@ -119,10 +114,12 @@
         },function (data) {
             console.log(data);
 
+                cobertura = data.cobertura;
+
                 $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
-                            data.cobertura+
+                            cobertura+
                         '</div>'+
                         '<div class="collapsible-body">'+
                             '<table class="produtos">'+
@@ -136,12 +133,12 @@
                                     '<th>Ações</th>'+
                                 '</tr>'+
                            ' </thead>'+
-                        '<tbody id="corpo_tabela">');
+                        '<tbody id="corpo_tabela_'+cobertura+'">');
 
 
                 $.each(data.produtos, function (indexInArray, valueOfElement) { 
 
-                    $('#corpo_tabela').append(
+                    $('#corpo_tabela_'+cobertura).append(
                         ' <tr>'+
                             ' <td>'+valueOfElement.cobertura+'</td>'+
                             '<td>'+valueOfElement.nome+'</td>'+
