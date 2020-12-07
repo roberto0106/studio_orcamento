@@ -167,7 +167,6 @@ function grafico(valor){
                             '<table class="produtos">'+
                             '<thead>'+
                                ' <tr>'+
-                                   ' <th>Cobertura</th>'+
                                     '<th>Produto</th>'+
                                     '<th>Quantidade</th>'+
                                     '<th>Valor Unitario</th>'+
@@ -182,7 +181,6 @@ function grafico(valor){
 
                     $('#corpo_tabela_'+cobertura_id).append(
                         ' <tr>'+
-                            ' <td>'+valueOfElement.cobertura+'</td>'+
                             '<td>'+valueOfElement.nome+'</td>'+
                             '<td>'+valueOfElement.quantidade+'</td>'+
                             '<td>'+valueOfElement.preco_venda+'</td>'+
