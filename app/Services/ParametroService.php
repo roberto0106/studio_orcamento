@@ -17,7 +17,7 @@ class ParametroService{
         ->get();
 
         $return = [];
-        $total_cobertura = 0;
+   
         
         foreach ($produtos as $key => $valueProduto) {
             foreach ($parametros as $key => $valueParametro) {
@@ -27,13 +27,12 @@ class ParametroService{
                     $return[$valueProduto->id]['quantidade']=$valueParametro->qtd_produtos;
                     $return[$valueProduto->id]['preco_venda']=$valueProduto->preco_venda; 
                     $return[$valueProduto->id]['valor_total']=$valueProduto->preco_venda * $valueParametro->qtd_produtos;
-                    $total_cobertura = $total_cobertura + $valueProduto->preco_venda * $valueParametro->qtd_produtos;
                 }
             }
             
         }
 
-        $return['total_cobertura'] = $total_cobertura;
+      
         
 
         return $return;

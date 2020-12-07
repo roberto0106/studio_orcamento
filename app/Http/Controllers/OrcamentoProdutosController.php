@@ -97,6 +97,16 @@ class OrcamentoProdutosController extends Controller
         $produtos = Produtos::where('cobertura_id',$cobertura)->get();
         $p = new ParametroService;
         $parametros['produtos'] = $p->mostrar($formandos,$cobertura);
+
+        // dd($parametros['produtos']);
+
+        $cobertura_valor_total = 0;
+
+        foreach ($parametros['produtos'] as $key => $value) {
+           $cobertura_valor_total = $cobertura_valor_total + $value['valor_total'];
+        }
+        
+        $parametros['total_cobertura'] = $cobertura_valor_total;
         $parametros['cobertura'] = Cobertura::where('id',$cobertura)->get();
      
         return $parametros;

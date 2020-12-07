@@ -66,10 +66,14 @@
     <h5>Coberturas Inseridas</h5>
 </blockquote>
 
+<div class="row">
+    <div class="col s10">
+        <ul class="collapsible popout" id="produtos_inseridos">
 
-<ul class="collapsible popout" id="produtos_inseridos">
+        </ul>
+    </div>
+</div>
 
-</ul>
 
 @endsection
 
@@ -121,7 +125,7 @@
                 $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
-                            cobertura+' <span class="right">Total R$: '+data.produtos['total_cobertura']+'</span>'+
+                            cobertura+' <span class="badge">Total R$: '+data.total_cobertura+'</span>'+
                         '</div>'+
                         '<div class="collapsible-body">'+
                             '<table class="produtos">'+
