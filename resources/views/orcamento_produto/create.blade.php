@@ -10,6 +10,8 @@
 {{$item->cliente}}
 @endforeach
 
+<hr>
+
 <blockquote>
     <h5>Dados do Orcamento</h5>
 </blockquote>
@@ -18,9 +20,7 @@
 {{$item->cliente}}
 @endforeach
 
-<blockquote>
-    <h5>Coberturas</h5>
-</blockquote>
+<hr>
 
 <style>
 .mostrar{
@@ -36,7 +36,10 @@
 
 
 <div class="row">
-    <div class="col s4">
+    <div class="col s4" style="height: 500px; overflow-y: scroll;">
+        <blockquote>
+            <h5>Coberturas</h5>
+        </blockquote>
 
         @foreach ($coberturas as $item)
         <form class="col s12">
@@ -67,6 +70,8 @@
         <ul class="collapsible popout" id="produtos_inseridos">
 
         </ul>
+        <hr>
+        <h4>Total: R$ 1000,00</h4>
     </div>
     <div class="col s4">
         <blockquote>
