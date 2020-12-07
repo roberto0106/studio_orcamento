@@ -114,8 +114,10 @@
         },function (data) {
             console.log(data);
 
-                cobertura = data.cobertura;
+                cobertura_id = data.cobertura[0].id;
+                cobertura = data.cobertura[0].nome;
 
+            
                 $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
@@ -133,12 +135,12 @@
                                     '<th>Ações</th>'+
                                 '</tr>'+
                            ' </thead>'+
-                        '<tbody id="corpo_tabela_'+cobertura+'">');
+                        '<tbody id="corpo_tabela_'+cobertura_id+'">');
 
 
                 $.each(data.produtos, function (indexInArray, valueOfElement) { 
 
-                    $('#corpo_tabela_'+cobertura).append(
+                    $('#corpo_tabela_'+cobertura_id).append(
                         ' <tr>'+
                             ' <td>'+valueOfElement.cobertura+'</td>'+
                             '<td>'+valueOfElement.nome+'</td>'+
