@@ -121,7 +121,7 @@
                 $('#produtos_inseridos').append(
                         '<li>'+
                         '<div class="collapsible-header"><i class="material-icons">filter_drama</i>'+
-                            cobertura+
+                            cobertura+' <span class="right">Total R$: '+data.produtos['total_cobertura']+'</span>'+
                         '</div>'+
                         '<div class="collapsible-body">'+
                             '<table class="produtos">'+
