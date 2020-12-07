@@ -168,8 +168,8 @@ function grafico(valor){
                             '<thead>'+
                                ' <tr>'+
                                     '<th>Produto</th>'+
-                                    '<th>Quantidade</th>'+
-                                    '<th>Valor Unitario</th>'+
+                                    '<th>Qtd</th>'+
+                                    '<th>Preço</th>'+
                                     '<th>Total</th>'+
                                     '<th>Ações</th>'+
                                 '</tr>'+
