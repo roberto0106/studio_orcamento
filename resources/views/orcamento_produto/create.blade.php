@@ -36,31 +36,32 @@
 
 
 <div class="row">
-    <div class="col s4" style="height: 500px; overflow-y: scroll;">
+    <div class="col s4">
         <blockquote>
             <h5>Coberturas</h5>
         </blockquote>
 
-        @foreach ($coberturas as $item)
-        <form class="col s12">
-            <div class="row">
-            <div class="input-field col s4">
-                {!! Form::label('coberturas', $item->nome) !!}        
-            </div>
-            <div class="input-field col s4">
-                {!! Form::number('formandos_pagantes', '', ['id'=>$item->id,'class'=>'validate']) !!}
-                {!! Form::label('formandos_pagantes', 'Formandos Pagantes') !!}
-            </div>
-            <div class="input-field col s4">
-            <a class="btn-floating btn-large waves-effect waves-light green add" id="add_{{$item->id}}" onclick="show_options({{$item->id}})"><i class="material-icons">add</i></a>
-                <a class="btn-floating btn-large waves-effect waves-light red remove" id="remove_{{$item->id}}"><i class="material-icons">delete</i></a>
-                <a class="btn-floating btn-large waves-effect waves-light blue check" id="check_{{$item->id}}"><i class="material-icons">check</i></a>
-            </div>    
-            </div>
-    
-        </form>
-        @endforeach
+        <div style="height: 500px; overflow-y: scroll;">
+            @foreach ($coberturas as $item)
+            <form class="col s12">
+                <div class="row">
+                <div class="input-field col s4">
+                    {!! Form::label('coberturas', $item->nome) !!}        
+                </div>
+                <div class="input-field col s4">
+                    {!! Form::number('formandos_pagantes', '', ['id'=>$item->id,'class'=>'validate']) !!}
+                    {!! Form::label('formandos_pagantes', 'Formandos Pagantes') !!}
+                </div>
+                <div class="input-field col s4">
+                <a class="btn-floating btn-large waves-effect waves-light green add" id="add_{{$item->id}}" onclick="show_options({{$item->id}})"><i class="material-icons">add</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light red remove" id="remove_{{$item->id}}"><i class="material-icons">delete</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light blue check" id="check_{{$item->id}}"><i class="material-icons">check</i></a>
+                </div>    
+                </div>
         
+            </form>
+            @endforeach
+        </div>        
     </div>
 
     <div class="col s4">
