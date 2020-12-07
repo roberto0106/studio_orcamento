@@ -35,42 +35,44 @@
 
 
 
-
 <div class="row">
+    <div class="col s4">
 
-    @foreach ($coberturas as $item)
-    <form class="col s12">
-        <div class="row">
-          <div class="input-field col s4">
-              {!! Form::label('coberturas', $item->nome) !!}        
-          </div>
-          <div class="input-field col s4">
-            {!! Form::number('formandos_pagantes', '', ['id'=>$item->id,'class'=>'validate']) !!}
-            {!! Form::label('formandos_pagantes', 'Formandos Pagantes') !!}
-          </div>
-          <div class="input-field col s4">
-          <a class="btn-floating btn-large waves-effect waves-light green add" id="add_{{$item->id}}" onclick="show_options({{$item->id}})"><i class="material-icons">add</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light red remove" id="remove_{{$item->id}}"><i class="material-icons">delete</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light blue check" id="check_{{$item->id}}"><i class="material-icons">check</i></a>
-          </div>    
-        </div>
-  
-      </form>
-    @endforeach
+        @foreach ($coberturas as $item)
+        <form class="col s12">
+            <div class="row">
+            <div class="input-field col s4">
+                {!! Form::label('coberturas', $item->nome) !!}        
+            </div>
+            <div class="input-field col s4">
+                {!! Form::number('formandos_pagantes', '', ['id'=>$item->id,'class'=>'validate']) !!}
+                {!! Form::label('formandos_pagantes', 'Formandos Pagantes') !!}
+            </div>
+            <div class="input-field col s4">
+            <a class="btn-floating btn-large waves-effect waves-light green add" id="add_{{$item->id}}" onclick="show_options({{$item->id}})"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red remove" id="remove_{{$item->id}}"><i class="material-icons">delete</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light blue check" id="check_{{$item->id}}"><i class="material-icons">check</i></a>
+            </div>    
+            </div>
     
-  </div>
+        </form>
+        @endforeach
+        
+    </div>
 
-
-
-<blockquote>
-    <h5>Coberturas Inseridas</h5>
-</blockquote>
-
-<div class="row">
-    <div class="col s10">
+    <div class="col s4">
+        <blockquote>
+            <h5>Coberturas Inseridas</h5>
+        </blockquote>
         <ul class="collapsible popout" id="produtos_inseridos">
 
         </ul>
+    </div>
+    <div class="col s4">
+        <blockquote>
+            <h5>Distribuição das Despesas</h5>
+        </blockquote>
+        <canvas id="myChart"></canvas>
     </div>
 </div>
 
@@ -79,6 +81,33 @@
 
 @section('scripts')
 <script type="text/javascript">
+
+function grafico(valor){
+        var data = {
+        datasets: [{
+            data: [valor],
+            // backgroundColor: ["#0074D9", "#FF4136", "#2ECC40"]
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        // labels: [
+        //     'Red',
+        //     'Yellow',
+        //     'Blue'
+        // ]
+    };
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        
+        // options: options
+    });
+  
+}
+
+
     
     
     $(document).ready(function () {
@@ -117,10 +146,11 @@
             'formandos':qtd_formandos
         },function (data) {
             console.log(data);
+           
 
                 cobertura_id = data.cobertura[0].id;
                 cobertura = data.cobertura[0].nome;
-
+                grafico(data.total_cobertura);
             
                 $('#produtos_inseridos').append(
                         '<li>'+
