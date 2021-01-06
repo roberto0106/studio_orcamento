@@ -24,6 +24,16 @@
 <body>
 
     <div id="app">
+       
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="{{route('orcamento_produtos.index')}}">Orçamentos</a></li>
+            <li><a href="{{route('orcamentos.create')}}">Novo Orçamento</a></li>
+            <li class="divider"></li>
+            <li><a href="{{route('orcamento_produtos.index')}}">Orçamentos Pendentes</a></li>
+        </ul>
+       
+       
+       
         <nav>
             <div class="nav-wrapper blue">
                 <a href="#!" class="brand-logo">Studio Orçamento</a>
@@ -39,6 +49,15 @@
                     </li>
                     @endif
                     @else
+
+                    <li class="nav-item dropdown"> <a href="{{route('clientes.index')}}">Clientes</a></li>
+                    <li class="nav-item dropdown"> <a href="{{route('coberturas.index')}}">Coberturas</a></li>
+                    <li class="nav-item dropdown"> <a href="{{route('produtos.index')}}">Produtos</a></li>
+                    <li class="nav-item dropdown">  <a href="{{route('parametros.index')}}">Parametros</a></li>
+                    <li class="nav-item dropdown">  <a class="dropdown-trigger" href="#!" data-target="dropdown1">Orçamentos<i class="material-icons right">arrow_drop_down</i></a></li>
+                                                 
+            
+       
                     
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -62,19 +81,7 @@
             
         
         <div class="row">
-            {{-- <div class="col s1">
-                <!-- Grey navigation panel -->
-                <ul>
-                    <li>
-                        <a href="{{route('coberturas.index')}}">Coberturas</a><br>
-                        <a href="{{route('produtos.index')}}">Produtos</a><br>
-                        <a href="{{route('parametros.index')}}">Parametros</a><br>
-                        <a href="{{route('orcamento_produtos.index')}}">Orçamentos</a><br>
-
-                    </li>
-                    
-                </ul>
-            </div> --}}
+           
             
            
                 @yield('content')     
